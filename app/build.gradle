@@ -1,0 +1,79 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: "androidx.navigation.safeargs.kotlin"
+apply plugin: 'com.google.firebase.crashlytics'
+apply plugin: 'com.google.android.gms.oss-licenses-plugin'
+
+android {
+    compileSdkVersion versions.androidCompileSdk
+    defaultConfig {
+        applicationId "com.jskaleel.fte"
+        minSdkVersion versions.androidMinSdk
+        targetSdkVersion versions.androidTargetSdk
+        versionCode 32
+        versionName "8.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = "11"
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.core:core-ktx:1.10.1'
+    implementation 'com.google.android.material:material:1.9.0'
+
+    //Retrofit for REST
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+
+    implementation "androidx.room:room-runtime:2.5.1"
+    annotationProcessor "androidx.room:room-compiler:2.5.1"
+    kapt 'androidx.room:room-compiler:2.5.1'
+
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation project(':folioreader')
+
+    implementation 'com.google.firebase:firebase-core:21.1.1'
+    implementation 'com.google.firebase:firebase-crashlytics:18.3.7'
+
+    implementation 'com.google.android.gms:play-services-oss-licenses:17.0.1'
+    implementation 'com.google.firebase:firebase-messaging:23.1.2'
+
+    implementation 'np.com.susanthapa:curved_bottom_navigation:0.6.5'
+    // Koin for Android
+    implementation "org.koin:koin-android:$versions.koin"
+    // or Koin for Lifecycle scoping
+    implementation "org.koin:koin-androidx-scope:$versions.koin"
+    // or Koin for Android Architecture ViewModel
+    implementation "org.koin:koin-androidx-viewmodel:$versions.koin"
+    //Coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2'
+
+    implementation 'io.coil-kt:coil:1.1.1'
+}
+
+repositories {
+    mavenCentral()
+    google()
+    maven { url 'https://maven.google.com' }
+}
+apply plugin: 'com.google.gms.google-services'

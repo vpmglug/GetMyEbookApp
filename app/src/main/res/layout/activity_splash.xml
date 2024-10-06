@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/llSplashLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivAppLogo"
+            android:layout_width="@dimen/logo_height_width"
+            android:layout_height="@dimen/logo_height_width"
+            app:srcCompat="@drawable/ic_launcher_splash"
+            tools:ignore="ContentDescription" />
+    </LinearLayout>
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/progressLoader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/txtLoading"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/margin_15dp"
+        android:indeterminate="true"
+        android:interpolator="@android:anim/accelerate_decelerate_interpolator"
+        app:indicatorSize="@dimen/margin_50dp"
+        app:trackCornerRadius="@dimen/margin_5dp"
+        app:trackThickness="@dimen/margin_5dp" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txtLoading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/txtCredit"
+        android:layout_marginTop="@dimen/margin_5dp"
+        android:layout_marginBottom="@dimen/margin_10dp"
+        android:gravity="center"
+        android:padding="@dimen/margin_5dp"
+        android:textSize="@dimen/text_size_16sp"
+        app:fontFamily="@font/madurai_bold"
+        tools:text="Loading..." />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txtCredit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="@dimen/margin_5dp"
+        android:layout_marginBottom="@dimen/margin_5dp"
+        android:text="@string/book_by_mariyani_from_the_noun_project"
+        android:textSize="@dimen/text_size_12sp"
+        app:fontFamily="@font/madurai"
+        tools:ignore="RelativeOverlap" />
+</RelativeLayout>
