@@ -8,7 +8,6 @@ A simple app to Read and Download books. The Books included in the app
 are from the [Public Domain](https://en.wikipedia.org/wiki/Public_domain)
 (Expired Copyright and completely free).
 
-<><>
 <br> Please star⭐ the repo if you like what you see😉.
 
 
